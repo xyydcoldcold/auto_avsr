@@ -8,3 +8,5 @@ outputs/
 *.pyc
 *.tar
 .DS_Store
+DEVLOG.md
+tutorials/*.pth
