@@ -10,3 +10,6 @@ outputs/
 .DS_Store
 DEVLOG.md
 tutorials/*.pth
+# silent_speech: recordings are face video, predictions/eval tables are per-run; keep both local
+silent_speech/data/
+silent_speech/outputs/

@@ -1,0 +1,81 @@
+id,split,scene,text
+s000,in_scene,daily_messages,on my way
+s001,in_scene,daily_messages,running ten minutes late
+s002,in_scene,daily_messages,see you at five
+s003,in_scene,daily_messages,sounds good to me
+s004,in_scene,daily_messages,can you call me back
+s005,in_scene,daily_messages,i am in a meeting
+s006,in_scene,daily_messages,talk to you later
+s007,in_scene,daily_messages,thanks so much
+s008,in_scene,daily_messages,no worries at all
+s009,in_scene,daily_messages,what time works for you
+s010,in_scene,daily_messages,let me check and get back to you
+s011,in_scene,daily_messages,i will be there soon
+s012,in_scene,daily_messages,did you get my message
+s013,in_scene,daily_messages,happy birthday
+s014,in_scene,daily_messages,good morning
+s015,in_scene,daily_messages,good night
+s016,in_scene,daily_messages,are you free tonight
+s017,in_scene,daily_messages,let's grab lunch tomorrow
+s018,in_scene,daily_messages,where are you now
+s019,in_scene,daily_messages,just got home
+s020,in_scene,daily_messages,i am almost there
+s021,in_scene,daily_messages,give me a minute
+s022,in_scene,daily_messages,that works for me
+s023,in_scene,daily_messages,sorry i missed your call
+s024,in_scene,daily_messages,can we reschedule
+s025,in_scene,daily_messages,see you tomorrow
+s026,in_scene,daily_messages,love you
+s027,in_scene,daily_messages,take care
+s028,in_scene,daily_messages,what do you want for dinner
+s029,in_scene,daily_messages,i am leaving now
+s030,in_scene,daily_messages,call me when you can
+s031,in_scene,daily_messages,how was your day
+s032,in_scene,daily_messages,i will text you later
+s033,in_scene,daily_messages,yes please
+s034,in_scene,daily_messages,no thank you
+s035,in_scene,daily_messages,traffic is really bad
+s036,in_scene,daily_messages,i forgot my keys
+s037,in_scene,daily_messages,can you pick me up
+s038,in_scene,daily_messages,the meeting is cancelled
+s039,in_scene,daily_messages,send me the address
+s040,in_scene,daily_messages,i am at the coffee shop
+s041,in_scene,daily_messages,it was nice to see you
+s042,in_scene,daily_messages,let me know when you arrive
+s043,in_scene,daily_messages,have a great weekend
+s044,in_scene,daily_messages,i am not feeling well
+s045,in_scene,daily_messages,please wait for me
+s046,in_scene,daily_messages,we are out of milk
+s047,in_scene,daily_messages,congratulations
+s048,in_scene,daily_messages,i will call you in five minutes
+s049,in_scene,daily_messages,okay see you then
+o000,open,,it snowed
+o001,open,,prices rose
+o002,open,,the store closed
+o003,open,,she plays piano
+o004,open,,trees lose leaves
+o005,open,,the library closes early
+o006,open,,he lost his phone
+o007,open,,the movie was long
+o008,open,,the children played outside
+o009,open,,coffee prices went up
+o010,open,,the lake froze overnight
+o011,open,,she bought a bicycle
+o012,open,,the museum opened today
+o013,open,,my brother works at night
+o014,open,,the train was delayed again
+o015,open,,we watched the sunrise together
+o016,open,,the restaurant serves great noodles
+o017,open,,they moved to a town
+o018,open,,remember to water the plants today
+o019,open,,the weather is getting colder now
+x000,out_scene,,cells divide
+x001,out_scene,,restart the server
+x002,out_scene,,open the terminal window
+x003,out_scene,,qubits replace classical bits
+x004,out_scene,,the invoice is overdue
+x005,out_scene,,rotate the image clockwise
+x006,out_scene,,plants turn sunlight into energy
+x007,out_scene,,stocks fell sharply on tuesday
+x008,out_scene,,increase the font size again
+x009,out_scene,,compile the code and run tests
