@@ -11,6 +11,8 @@ import torch
 import torchvision
 
 from datamodule.transforms import VideoTransform
+from espnet.nets.pytorch_backend.nets_utils import pad_list
+from espnet.nets.pytorch_backend.transformer.mask import target_mask
 from lightning import ModelModule, get_beam_search_decoder
 from preparation.detectors.mediapipe.detector import LandmarksDetector
 from preparation.detectors.mediapipe.video_process import VideoProcess
@@ -77,3 +79,48 @@ class VSRPipeline:
     def transcribe_file(self, video_path):
         frames = torchvision.io.read_video(video_path, pts_unit="sec")[0].numpy()
         return self.transcribe(frames)
+
+    def encode(self, frames):
+        """Crop the mouth and run the visual encoder once. Returns 1 x T x D features."""
+        video = self.preprocess(frames)
+        model = self.modelmodule.model
+        with torch.no_grad():
+            enc_feat, _ = model.encoder(model.proj_encoder(model.frontend(video.unsqueeze(0))), None)
+        return enc_feat
+
+    def tokenize(self, text):
+        return self.modelmodule.text_transform.tokenize(text.upper())
+
+    def score_phrases(self, enc_feat, token_seqs, batch_size=128):
+        """Score given sentences against the video instead of decoding freely (teacher forcing).
+
+        The same two log-probabilities the model is trained on: the attention decoder's
+        log P(tokens + <eos>) and the CTC log P(tokens). Returns (att_logp, ctc_logp) lists.
+        """
+        model = self.modelmodule.model
+        ctc_logp_frames = model.ctc.log_softmax(enc_feat)  # 1 x T x V
+        n_frames = enc_feat.size(1)
+        att_out, ctc_out = [], []
+        with torch.no_grad():
+            for i in range(0, len(token_seqs), batch_size):
+                ys = token_seqs[i : i + batch_size]
+                b = len(ys)
+                sos = eos = model.eos
+                ys_in = pad_list([torch.cat([ys[0].new([sos]), y]) for y in ys], eos)
+                ys_out = pad_list([torch.cat([y, y.new([eos])]) for y in ys], -1)
+                logits, _ = model.decoder(ys_in, target_mask(ys_in, -1), enc_feat.expand(b, -1, -1), None)
+                logp = logits.log_softmax(-1)
+                valid = ys_out != -1
+                tok_logp = logp.gather(-1, ys_out.clamp(min=0).unsqueeze(-1)).squeeze(-1)
+                att_out += (tok_logp * valid).sum(-1).tolist()
+
+                ctc_loss = torch.nn.functional.ctc_loss(
+                    ctc_logp_frames.expand(b, -1, -1).transpose(0, 1),
+                    torch.cat(ys),
+                    torch.full((b,), n_frames, dtype=torch.long),
+                    torch.tensor([len(y) for y in ys]),
+                    blank=0, reduction="none",
+                )
+                ctc_out += (-ctc_loss).tolist()  # -inf when the sentence is too long for the clip
+        return att_out, ctc_out
+
