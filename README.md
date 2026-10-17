@@ -1,3 +1,11 @@
+# Silent Speech on Auto-AVSR (personal fork)
+
+This fork uses the pretrained Auto-AVSR visual speech recognition (lip-reading) model to recognize one person's *silent* speech: words mouthed with no voice. Public VSR models are trained on voiced speech (LRS2/LRS3/VoxCeleb2/AVSpeech) with the audio dropped, and silent articulation looks different; this project measures that gap on my own recordings and how much personal silent data closes it. On day 1 (80 prompts each way), the strongest released Auto-AVSR VSR checkpoint (20.3% WER on LRS3) gets 73.6% WER on my silent clips vs 31.0% on the same sentences voiced; restricting the output to a closed list of 50 chat phrases lifts silent top-1 sentence accuracy from 24% (free decoding) to 84% (still optimistic: the list is small and contains the test prompts). Details, benchmark design and how to run it: [silent_speech/README.md](silent_speech/README.md).
+
+---
+
+# Original Auto-AVSR README
+
 # Auto-AVSR: Lip-reading Sentences Project
 
 ## Update
