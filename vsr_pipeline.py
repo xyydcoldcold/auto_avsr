@@ -5,9 +5,14 @@ detector so it runs on CPU-only machines.
 """
 
 import argparse
+import os
 import time
 
-import torch
+# The 3D max-pool in the visual frontend has no MPS kernel; run that one op on the CPU.
+# Must be set before torch is imported (scripts that import torch first set it themselves).
+os.environ.setdefault("PYTORCH_ENABLE_MPS_FALLBACK", "1")
+
+import torch  # noqa: E402
 import torchvision
 
 from datamodule.transforms import VideoTransform
@@ -22,7 +27,9 @@ MODEL_FPS = 25
 
 
 class VSRPipeline:
-    def __init__(self, model_path):
+    def __init__(self, model_path, device="cpu"):
+        """device: "cpu" or "mps" (mps is only tested for encode() / score_phrases())."""
+        self.device = torch.device(device)
         self.landmarks_detector = LandmarksDetector()
         self.video_process = VideoProcess(convert_gray=False)
         self.video_transform = VideoTransform(subset="test")
@@ -31,6 +38,7 @@ class VSRPipeline:
         ckpt = torch.load(model_path, map_location="cpu", weights_only=True)
         self.modelmodule.model.load_state_dict(ckpt)
         self.modelmodule.eval()
+        self.modelmodule.model.to(self.device)
 
     def preprocess(self, frames):
         """frames: uint8 RGB array of shape T x H x W x 3, sampled at 25 fps."""
@@ -42,7 +50,7 @@ class VSRPipeline:
         return self.video_transform(video)
 
     def transcribe(self, frames):
-        video = self.preprocess(frames)
+        video = self.preprocess(frames).to(self.device)
         with torch.no_grad():
             return self.modelmodule(video)
 
@@ -59,7 +67,7 @@ class VSRPipeline:
         model = self.modelmodule.model
         beam_search = get_beam_search_decoder(model, self.modelmodule.token_list, beam_size=beam_size)
         with torch.no_grad():
-            x = model.proj_encoder(model.frontend(video.unsqueeze(0)))
+            x = model.proj_encoder(model.frontend(video.unsqueeze(0).to(self.device)))
             enc_feat, _ = model.encoder(x, None)
             ended = beam_search(enc_feat.squeeze(0))
         t2 = time.perf_counter()
@@ -85,7 +93,8 @@ class VSRPipeline:
         video = self.preprocess(frames)
         model = self.modelmodule.model
         with torch.no_grad():
-            enc_feat, _ = model.encoder(model.proj_encoder(model.frontend(video.unsqueeze(0))), None)
+            x = model.proj_encoder(model.frontend(video.unsqueeze(0).to(self.device)))
+            enc_feat, _ = model.encoder(x, None)
         return enc_feat
 
     def tokenize(self, text):
@@ -98,21 +107,22 @@ class VSRPipeline:
         log P(tokens + <eos>) and the CTC log P(tokens). Returns (att_logp, ctc_logp) lists.
         """
         model = self.modelmodule.model
-        ctc_logp_frames = model.ctc.log_softmax(enc_feat)  # 1 x T x V
+        ctc_logp_frames = model.ctc.log_softmax(enc_feat).cpu()  # 1 x T x V; CTC is cheap, keep it on the CPU
         n_frames = enc_feat.size(1)
         att_out, ctc_out = [], []
         with torch.no_grad():
             for i in range(0, len(token_seqs), batch_size):
                 ys = token_seqs[i : i + batch_size]
                 b = len(ys)
+                ys_dev = [y.to(self.device) for y in ys]
                 sos = eos = model.eos
-                ys_in = pad_list([torch.cat([ys[0].new([sos]), y]) for y in ys], eos)
-                ys_out = pad_list([torch.cat([y, y.new([eos])]) for y in ys], -1)
+                ys_in = pad_list([torch.cat([y.new([sos]), y]) for y in ys_dev], eos)
+                ys_out = pad_list([torch.cat([y, y.new([eos])]) for y in ys_dev], -1)
                 logits, _ = model.decoder(ys_in, target_mask(ys_in, -1), enc_feat.expand(b, -1, -1), None)
                 logp = logits.log_softmax(-1)
                 valid = ys_out != -1
                 tok_logp = logp.gather(-1, ys_out.clamp(min=0).unsqueeze(-1)).squeeze(-1)
-                att_out += (tok_logp * valid).sum(-1).tolist()
+                att_out += (tok_logp * valid).sum(-1).cpu().tolist()
 
                 ctc_loss = torch.nn.functional.ctc_loss(
                     ctc_logp_frames.expand(b, -1, -1).transpose(0, 1),
