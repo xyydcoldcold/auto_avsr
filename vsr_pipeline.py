@@ -25,10 +25,46 @@ from preparation.detectors.mediapipe.video_process import VideoProcess
 # The models were trained on 25 fps video (LRS3 / VoxCeleb2).
 MODEL_FPS = 25
 
+# Encoder attention projections that get a LoRA adapter (all 12 conformer blocks).
+LORA_TARGETS = ("linear_q", "linear_k", "linear_v", "linear_out")
+
+
+class LoRALinear(torch.nn.Module):
+    """y = W x + (alpha / r) * B A x, with W frozen and only A, B trained. B starts at 0, so an
+    untrained adapter leaves the model exactly as it was."""
+
+    def __init__(self, base, rank, alpha):
+        super().__init__()
+        self.base = base
+        self.scale = alpha / rank
+        self.lora_A = torch.nn.Parameter(torch.empty(rank, base.in_features))
+        self.lora_B = torch.nn.Parameter(torch.zeros(base.out_features, rank))
+        torch.nn.init.kaiming_uniform_(self.lora_A, a=5 ** 0.5)
+
+    def forward(self, x):
+        return self.base(x) + (x @ self.lora_A.t() @ self.lora_B.t()) * self.scale
+
+
+def add_lora(model, rank=8, alpha=16):
+    """Freeze the whole model and wrap the encoder's attention projections with LoRA. Returns the LoRA params."""
+    for p in model.parameters():
+        p.requires_grad = False
+    for module in list(model.encoder.modules()):
+        for name in LORA_TARGETS:
+            child = getattr(module, name, None)
+            if isinstance(child, torch.nn.Linear):
+                setattr(module, name, LoRALinear(child, rank, alpha))
+    return [p for n, p in model.named_parameters() if "lora_" in n]
+
+
+def lora_state_dict(model):
+    return {n: p.detach().cpu() for n, p in model.named_parameters() if "lora_" in n}
+
 
 class VSRPipeline:
-    def __init__(self, model_path, device="cpu"):
-        """device: "cpu" or "mps" (mps is only tested for encode() / score_phrases())."""
+    def __init__(self, model_path, device="cpu", adapter=None):
+        """device: "cpu" or "mps" (mps is only tested for encode() / score_phrases()).
+        adapter: optional LoRA file saved by silent_speech/train_lora.py."""
         self.device = torch.device(device)
         self.landmarks_detector = LandmarksDetector()
         self.video_process = VideoProcess(convert_gray=False)
@@ -37,17 +73,27 @@ class VSRPipeline:
         self.modelmodule = ModelModule(argparse.Namespace(modality="video"))
         ckpt = torch.load(model_path, map_location="cpu", weights_only=True)
         self.modelmodule.model.load_state_dict(ckpt)
+        if adapter:
+            saved = torch.load(adapter, map_location="cpu", weights_only=True)
+            add_lora(self.modelmodule.model, saved["config"]["rank"], saved["config"]["alpha"])
+            missing = set(saved["lora"]) - {n for n, _ in self.modelmodule.model.named_parameters()}
+            if missing:
+                raise RuntimeError(f"Adapter does not match the model: {sorted(missing)[:3]}")
+            self.modelmodule.model.load_state_dict(saved["lora"], strict=False)
         self.modelmodule.eval()
         self.modelmodule.model.to(self.device)
 
-    def preprocess(self, frames):
-        """frames: uint8 RGB array of shape T x H x W x 3, sampled at 25 fps."""
+    def crop(self, frames):
+        """Mouth crops before normalisation: uint8 tensor T x 3 x 96 x 96 (what training augments)."""
         landmarks = self.landmarks_detector(frames)
         video = self.video_process(frames, landmarks)
         if video is None:
             raise RuntimeError("No face detected in the clip.")
-        video = torch.tensor(video).permute((0, 3, 1, 2))
-        return self.video_transform(video)
+        return torch.tensor(video).permute((0, 3, 1, 2))
+
+    def preprocess(self, frames):
+        """frames: uint8 RGB array of shape T x H x W x 3, sampled at 25 fps."""
+        return self.video_transform(self.crop(frames))
 
     def transcribe(self, frames):
         video = self.preprocess(frames).to(self.device)

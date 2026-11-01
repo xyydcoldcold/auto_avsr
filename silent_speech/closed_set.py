@@ -78,7 +78,7 @@ def score_clips(args, phrases, clips, cache_path, greedy_path):
     if not pending:
         return
 
-    pipeline = VSRPipeline(args.model, device=args.device)
+    pipeline = VSRPipeline(args.model, device=args.device, adapter=args.adapter)
     tokens = [pipeline.tokenize(p) for p in phrases]
     with open(cache_path, "a", encoding="utf-8") as f, open(greedy_path, "a", encoding="utf-8") as g:
         for n, clip in enumerate(pending, 1):
@@ -230,9 +230,10 @@ def main():
     ap.add_argument("--model", required=True, help="Path to a VSR .pth checkpoint")
     ap.add_argument("--manifest", default=str(HERE / "data" / "manifest.jsonl"))
     ap.add_argument("--phrases", default=str(HERE / "phrases.txt"))
-    ap.add_argument("--cache", default=str(HERE / "outputs" / "phrase_scores.jsonl"))
-    ap.add_argument("--pred", default=str(HERE / "outputs" / "predictions.jsonl"),
-                    help="infer.py output; its top beam score is the reference for the beam gap")
+    ap.add_argument("--adapter", default=None, help="LoRA file from train_lora.py (default: base model only)")
+    ap.add_argument("--cache", default=None, help="Default: outputs/phrase_scores[_<adapter>].jsonl")
+    ap.add_argument("--pred", default=None, help="infer.py output for the same model + adapter; its top beam "
+                    "score is the reference for the beam gap. Default: outputs/predictions[_<adapter>].jsonl")
     ap.add_argument("--device", default="cpu", choices=["cpu", "mps"], help="mps = Apple GPU")
     ap.add_argument("--fit-session", default="day1", help="session the reject threshold is fit on")
     ap.add_argument("--test-session", default="day2", help="session the fitted threshold is checked on")
@@ -242,10 +243,12 @@ def main():
     phrases = [norm(p) for p in Path(args.phrases).read_text(encoding="utf-8").splitlines() if p.strip()]
     clips = load_jsonl(args.manifest)[: args.limit]
     args.list_id = hashlib.md5("\n".join(phrases).encode()).hexdigest()[:8]  # rescore if the list changes
-    cache_path = Path(args.cache)
+    suffix = f"_{Path(args.adapter).stem}" if args.adapter else ""
+    cache_path = Path(args.cache) if args.cache else HERE / "outputs" / f"phrase_scores{suffix}.jsonl"
+    args.pred = args.pred or str(HERE / "outputs" / f"predictions{suffix}.jsonl")
     cache_path.parent.mkdir(parents=True, exist_ok=True)
 
-    greedy_path = cache_path.with_name("ctc_greedy.jsonl")
+    greedy_path = cache_path.with_name(cache_path.name.replace("phrase_scores", "ctc_greedy"))
     score_clips(args, phrases, clips, cache_path, greedy_path)
 
     from datamodule.transforms import TextTransform

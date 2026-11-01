@@ -8,7 +8,7 @@ Usage (from the repo root):
 Writes one line per clip in the format evaluate.py expects:
     {"clip_id": "...", "nbest": [{"text": "...", "score": -3.2}, ...],
      "latency_ms": 840, "crop_ms": 300, "decode_ms": 540, "beam_size": 10,
-     "model": "vsr_trlrs2lrs3vox2avsp_base", "adapter": null}
+     "model": "vsr_trlrs2lrs3vox2avsp_base", "adapter": null}   (or the --adapter file name)
 
 latency_ms covers mouth cropping + decoding, not reading the file from disk.
 A clip that fails (e.g. no face found) gets a single empty hypothesis and an "error"
@@ -51,7 +51,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True, help="Path to a VSR .pth checkpoint")
     ap.add_argument("--manifest", default=str(HERE / "data" / "manifest.jsonl"))
-    ap.add_argument("--out", default=str(HERE / "outputs" / "predictions.jsonl"))
+    ap.add_argument("--adapter", default=None, help="LoRA file from train_lora.py (default: base model only)")
+    ap.add_argument("--out", default=None, help="Default: outputs/predictions.jsonl, or predictions_<adapter>.jsonl")
     ap.add_argument("--beam-size", type=int, default=10)
     ap.add_argument("--nbest", type=int, default=10)
     ap.add_argument("--limit", type=int, default=None, help="Only run the first N pending clips")
@@ -59,7 +60,9 @@ def main():
 
     manifest = Path(args.manifest)
     clips = load_jsonl(manifest)
-    out = Path(args.out)
+    adapter_name = Path(args.adapter).stem if args.adapter else None
+    out = Path(args.out) if args.out else HERE / "outputs" / (
+        f"predictions_{adapter_name}.jsonl" if adapter_name else "predictions.jsonl")
     out.parent.mkdir(parents=True, exist_ok=True)
     done = {p["clip_id"] for p in load_jsonl(out)}
     pending = [c for c in clips if c["clip_id"] not in done][: args.limit]
@@ -69,7 +72,7 @@ def main():
 
     model_name = Path(args.model).stem
     print("Loading model...")
-    pipeline = VSRPipeline(args.model)
+    pipeline = VSRPipeline(args.model, adapter=args.adapter)
 
     failed = 0
     with open(out, "a", encoding="utf-8") as f:
@@ -84,7 +87,7 @@ def main():
             except Exception as e:  # e.g. no face found, mouth too close to the frame edge
                 failed += 1
                 pred.update(nbest=[{"text": "", "score": None}], latency_ms=0, error=str(e))
-            pred.update(beam_size=args.beam_size, model=model_name, adapter=None)
+            pred.update(beam_size=args.beam_size, model=model_name, adapter=adapter_name)
             f.write(json.dumps(pred, ensure_ascii=False) + "\n")
             f.flush()
 

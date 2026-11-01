@@ -1,0 +1,683 @@
+id,split,scene,text
+t000,train,daily_messages,i'll let you know
+t001,train,daily_messages,i can't make it
+t002,train,daily_messages,noted
+t003,train,daily_messages,i'll send it now
+t004,train,general,the oven takes ten minutes to heat
+t005,train,daily_messages,running thirty minutes late
+t006,train,general,he forgot his jacket
+t007,train,daily_messages,nice to hear from you
+t008,train,daily_messages,it was great to see you
+t009,train,daily_messages,how are you
+t010,train,general,the sky is very clear tonight
+t011,train,daily_messages,got it
+t012,train,daily_messages,i'm heading home
+t013,train,daily_messages,send it to me
+t014,train,daily_messages,meet me at the bus stop
+t015,train,daily_messages,so sorry
+t016,train,daily_messages,traffic is terrible
+t017,train,daily_messages,i just saw this
+t018,train,daily_messages,talk tomorrow
+t019,train,general,i finished the whole book
+t020,train,general,my shoes are by the door
+t021,train,general,the park is full of people
+t022,train,daily_messages,bring an umbrella
+t023,train,daily_messages,let's meet
+t024,train,daily_messages,i agree
+t025,train,daily_messages,see you at ten
+t026,train,daily_messages,i will call you in ten minutes
+t027,train,daily_messages,meet me at the park
+t028,train,daily_messages,let's grab a drink tomorrow
+t029,train,general,we bought a new rug
+t030,train,general,the heater is not working
+t031,train,daily_messages,same here
+t032,train,daily_messages,agreed
+t033,train,general,the hill is very steep
+t034,train,daily_messages,get well soon
+t035,train,daily_messages,are you free on friday
+t036,train,daily_messages,send me the details
+t037,train,daily_messages,check your email
+t038,train,daily_messages,never mind
+t039,train,general,she started a new job
+t040,train,general,he answered the phone
+t041,train,daily_messages,no rush
+t042,train,daily_messages,do you want anything
+t043,train,daily_messages,count me in
+t044,train,general,they won the game last night
+t045,train,daily_messages,see you this weekend
+t046,train,daily_messages,can you send it again
+t047,train,daily_messages,hey
+t048,train,daily_messages,on my way to the park
+t049,train,general,the fan is too noisy
+t050,train,daily_messages,are you free tomorrow
+t051,train,daily_messages,can you pick up dinner
+t052,train,daily_messages,i'm running late
+t053,train,daily_messages,call you on saturday
+t054,train,daily_messages,it's okay
+t055,train,daily_messages,enjoy your meal
+t056,train,daily_messages,something came up
+t057,train,daily_messages,let's go
+t058,train,daily_messages,miss you too
+t059,train,general,the shoes were on sale
+t060,train,general,she reads before bed
+t061,train,general,he works from home on fridays
+t062,train,daily_messages,can you call dad
+t063,train,daily_messages,that's awesome
+t064,train,general,she lost her earring
+t065,train,daily_messages,see you at six
+t066,train,daily_messages,did you eat
+t067,train,daily_messages,what time should we meet
+t068,train,daily_messages,are you free on sunday
+t069,train,daily_messages,talk soon
+t070,train,daily_messages,see you at eight
+t071,train,daily_messages,can i borrow your car
+t072,train,general,the dog chased the ball
+t073,train,daily_messages,can we meet tomorrow
+t074,train,daily_messages,i will call you in thirty minutes
+t075,train,daily_messages,i am at the park
+t076,train,daily_messages,can you call me
+t077,train,general,he fixed the broken chair
+t078,train,general,my cousin is getting married
+t079,train,daily_messages,i have a question
+t080,train,daily_messages,on my way to the office
+t081,train,daily_messages,that's okay
+t082,train,daily_messages,we're at the restaurant
+t083,train,general,the bill came to forty dollars
+t084,train,daily_messages,i'm at the store
+t085,train,daily_messages,want to get coffee
+t086,train,daily_messages,can you call the kids
+t087,train,general,my friend is a nurse
+t088,train,daily_messages,can we move it to friday
+t089,train,general,the bus stop moved last week
+t090,train,daily_messages,meet me at the station
+t091,train,daily_messages,let's get coffee
+t092,train,daily_messages,meet me at the coffee shop
+t093,train,daily_messages,i'm on the train
+t094,train,daily_messages,no problem
+t095,train,general,we ordered too much food
+t096,train,daily_messages,see you at noon
+t097,train,daily_messages,i'm busy right now
+t098,train,daily_messages,call me back
+t099,train,general,the car is in the garage
+t100,train,general,the plane landed early
+t101,train,daily_messages,it's cold outside
+t102,train,general,the glass is half full
+t103,train,daily_messages,i just woke up
+t104,train,daily_messages,can we push it back
+t105,train,daily_messages,thanks for everything
+t106,train,general,he is good at chess
+t107,train,general,he sent me a postcard
+t108,train,daily_messages,keep me posted
+t109,train,general,i cleaned the kitchen
+t110,train,daily_messages,on my way to the bus stop
+t111,train,daily_messages,that's not right
+t112,train,daily_messages,one second
+t113,train,daily_messages,let me ask
+t114,train,daily_messages,we're out of coffee
+t115,train,general,the box is very heavy
+t116,train,daily_messages,let's grab brunch this weekend
+t117,train,daily_messages,can you hear me
+t118,train,daily_messages,i can't find it
+t119,train,daily_messages,hold on
+t120,train,daily_messages,meet me at the office
+t121,train,daily_messages,did you get home safe
+t122,train,daily_messages,works for me
+t123,train,general,the cat is asleep on the sofa
+t124,train,general,the noise woke me up
+t125,train,daily_messages,i will call you in fifteen minutes
+t126,train,daily_messages,my flight is delayed
+t127,train,daily_messages,that makes sense
+t128,train,general,the table is set for dinner
+t129,train,daily_messages,meet you at one
+t130,train,general,he plays guitar on weekends
+t131,train,daily_messages,how are things
+t132,train,daily_messages,sweet dreams
+t133,train,daily_messages,rain check
+t134,train,daily_messages,sorry
+t135,train,daily_messages,i'm tired
+t136,train,daily_messages,take your time
+t137,train,daily_messages,do you want to get coffee
+t138,train,general,the photos look great
+t139,train,general,we need more chairs
+t140,train,daily_messages,meet you at ten
+t141,train,daily_messages,i can pick you up
+t142,train,daily_messages,let's grab coffee today
+t143,train,general,she called her mother
+t144,train,daily_messages,come with me
+t145,train,daily_messages,what do you need
+t146,train,general,i ate too much cake
+t147,train,daily_messages,see you at three
+t148,train,daily_messages,yep
+t149,train,daily_messages,send me a picture
+t150,train,daily_messages,let's grab breakfast this weekend
+t151,train,daily_messages,can i come over
+t152,train,daily_messages,i'm still in the meeting
+t153,train,daily_messages,what's the plan
+t154,train,daily_messages,i'll be right there
+t155,train,daily_messages,i'm hungry
+t156,train,daily_messages,who is coming
+t157,train,daily_messages,just let me know
+t158,train,daily_messages,meet you at nine
+t159,train,daily_messages,text me
+t160,train,daily_messages,good evening
+t161,train,daily_messages,it's fine
+t162,train,daily_messages,let's grab dinner today
+t163,train,daily_messages,i'm awake
+t164,train,daily_messages,thanks
+t165,train,general,the soup is ready
+t166,train,daily_messages,i'm ready
+t167,train,daily_messages,i forgot my phone
+t168,train,daily_messages,i'm heading out
+t169,train,general,he dropped his phone
+t170,train,daily_messages,see you tonight
+t171,train,daily_messages,i'll pick you up
+t172,train,general,he brought his own lunch
+t173,train,daily_messages,parking is a nightmare
+t174,train,daily_messages,meet you at five
+t175,train,general,she has a big family
+t176,train,daily_messages,no
+t177,train,daily_messages,let's do it
+t178,train,daily_messages,let's grab dinner this weekend
+t179,train,daily_messages,up to you
+t180,train,daily_messages,how was work
+t181,train,daily_messages,love you too
+t182,train,daily_messages,talk later
+t183,train,daily_messages,on my way to the restaurant
+t184,train,daily_messages,let's order food
+t185,train,general,i like this song a lot
+t186,train,daily_messages,i'm at the gym
+t187,train,daily_messages,can you call mom
+t188,train,daily_messages,be safe
+t189,train,general,the fridge is almost empty
+t190,train,daily_messages,i am at the gym
+t191,train,daily_messages,i'm double booked
+t192,train,general,the picture is on the wall
+t193,train,daily_messages,tell the kids i said hi
+t194,train,daily_messages,bye
+t195,train,daily_messages,meet me at the restaurant
+t196,train,general,the movie starts at eight
+t197,train,general,my sister lives in boston
+t198,train,daily_messages,come home
+t199,train,general,the bread is still warm
+t200,train,general,he likes old movies
+t201,train,daily_messages,meet me at the gym
+t202,train,daily_messages,can you help me
+t203,train,daily_messages,yes
+t204,train,daily_messages,how's it going
+t205,train,daily_messages,i missed your call
+t206,train,daily_messages,it's raining
+t207,train,general,the sink is full of dishes
+t208,train,daily_messages,call me later
+t209,train,daily_messages,can you call your brother
+t210,train,general,she drives a small car
+t211,train,general,he cooked a big breakfast
+t212,train,general,the road is closed for repairs
+t213,train,daily_messages,hello
+t214,train,general,my laptop battery died
+t215,train,daily_messages,don't worry about it
+t216,train,daily_messages,did you see that
+t217,train,general,we missed the last bus
+t218,train,daily_messages,i'll be late
+t219,train,general,she painted the fence blue
+t220,train,daily_messages,i'm going to bed
+t221,train,daily_messages,see you in a bit
+t222,train,daily_messages,i'm stuck in traffic
+t223,train,daily_messages,i just landed
+t224,train,daily_messages,see you there
+t225,train,daily_messages,not really
+t226,train,daily_messages,i didn't know
+t227,train,daily_messages,i'm feeling better
+t228,train,daily_messages,can you come over
+t229,train,daily_messages,be there in twenty minutes
+t230,train,daily_messages,i'm on the bus
+t231,train,daily_messages,that's right
+t232,train,daily_messages,nice
+t233,train,general,my socks do not match
+t234,train,daily_messages,i will call you in twenty minutes
+t235,train,daily_messages,let's talk later
+t236,train,general,the garden looks lovely
+t237,train,daily_messages,thank you so much
+t238,train,daily_messages,i'll be ready soon
+t239,train,daily_messages,what's up
+t240,train,daily_messages,where are you going
+t241,train,general,the cake is in the oven
+t242,train,general,the meeting room is booked
+t243,train,daily_messages,will do
+t244,train,daily_messages,dinner is ready
+t245,train,daily_messages,let's stay in
+t246,train,general,she found a good parking spot
+t247,train,daily_messages,i'm in the car
+t248,train,daily_messages,i'm done
+t249,train,daily_messages,the train is delayed
+t250,train,general,the battery is fully charged
+t251,train,daily_messages,i can make it
+t252,train,daily_messages,check your messages
+t253,train,daily_messages,we need milk
+t254,train,daily_messages,i know
+t255,train,daily_messages,meet you at three
+t256,train,daily_messages,maybe next time
+t257,train,daily_messages,meet me at the airport
+t258,train,daily_messages,call you on friday
+t259,train,general,we are painting the fence
+t260,train,general,the shirt is too small
+t261,train,general,he moved to a new apartment
+t262,train,daily_messages,i'm here
+t263,train,daily_messages,happy anniversary
+t264,train,daily_messages,be there in five minutes
+t265,train,daily_messages,we're running late
+t266,train,general,the bag is under the desk
+t267,train,daily_messages,enjoy
+t268,train,daily_messages,are you free on saturday
+t269,train,daily_messages,be there in ten minutes
+t270,train,general,my ticket is on my phone
+t271,train,daily_messages,i forgot my wallet
+t272,train,general,the grass needs cutting
+t273,train,daily_messages,i'll be online later
+t274,train,daily_messages,i have a meeting
+t275,train,daily_messages,on it
+t276,train,daily_messages,i'm outside
+t277,train,daily_messages,the meeting is over
+t278,train,daily_messages,let me think about it
+t279,train,general,the store was very crowded
+t280,train,daily_messages,let me check
+t281,train,general,my computer needs an update
+t282,train,daily_messages,can you talk
+t283,train,daily_messages,you're the best
+t284,train,daily_messages,let's grab coffee tomorrow
+t285,train,daily_messages,come pick me up
+t286,train,general,she ran for the bus
+t287,train,daily_messages,we're leaving soon
+t288,train,daily_messages,sleep well
+t289,train,daily_messages,the bus is late
+t290,train,daily_messages,have fun
+t291,train,general,i need to buy stamps
+t292,train,daily_messages,i can't talk right now
+t293,train,daily_messages,how about next week
+t294,train,daily_messages,good luck
+t295,train,daily_messages,want to get breakfast
+t296,train,daily_messages,see you at seven
+t297,train,daily_messages,can we talk tonight
+t298,train,daily_messages,how are you doing
+t299,train,general,my plant is growing fast
+t300,train,general,my back hurts today
+t301,train,daily_messages,i'll text you when i'm there
+t302,train,daily_messages,i hope so
+t303,train,daily_messages,i'll leave the door open
+t304,train,daily_messages,of course
+t305,train,daily_messages,that's great
+t306,train,general,the pizza is cold
+t307,train,daily_messages,i'll call you back
+t308,train,daily_messages,great
+t309,train,daily_messages,call you today
+t310,train,general,she bought a red dress
+t311,train,daily_messages,you're right
+t312,train,general,the room has a nice view
+t313,train,daily_messages,running twenty minutes late
+t314,train,daily_messages,be there in fifteen minutes
+t315,train,daily_messages,i lost my keys
+t316,train,general,i need a new phone charger
+t317,train,daily_messages,i'm getting ready
+t318,train,general,he left a note on the door
+t319,train,daily_messages,is everything okay
+t320,train,daily_messages,are you ready
+t321,train,general,the river is very high
+t322,train,daily_messages,nice to meet you
+t323,train,daily_messages,my bad
+t324,train,general,the door is stuck
+t325,train,general,we fed the ducks
+t326,train,daily_messages,i'll ask him
+t327,train,general,he wears a blue hat
+t328,train,daily_messages,i'll see you there
+t329,train,daily_messages,i'll check
+t330,train,daily_messages,i'm sick
+t331,train,daily_messages,are you okay
+t332,train,general,i forgot to lock the car
+t333,train,daily_messages,sure
+t334,train,general,the flowers need water
+t335,train,daily_messages,come over
+t336,train,daily_messages,i need a ride
+t337,train,daily_messages,do you have a minute
+t338,train,general,the internet is slow tonight
+t339,train,daily_messages,that's perfect
+t340,train,daily_messages,i got the tickets
+t341,train,daily_messages,we need to talk
+t342,train,general,we found a quiet cafe
+t343,train,daily_messages,on my way to the gym
+t344,train,daily_messages,what about you
+t345,train,daily_messages,see you at one
+t346,train,daily_messages,what's wrong
+t347,train,daily_messages,the meeting got moved
+t348,train,daily_messages,call you this weekend
+t349,train,daily_messages,meet you at noon
+t350,train,daily_messages,i got it
+t351,train,daily_messages,another time
+t352,train,daily_messages,call me when you're free
+t353,train,daily_messages,i am at the station
+t354,train,daily_messages,let's grab a drink this weekend
+t355,train,daily_messages,do you have time
+t356,train,daily_messages,sounds great
+t357,train,daily_messages,sounds good
+t358,train,daily_messages,thank you
+t359,train,general,the line was really long
+t360,train,daily_messages,are you awake
+t361,train,daily_messages,how was school
+t362,train,daily_messages,i can't come tonight
+t363,train,daily_messages,what do you think
+t364,train,general,we took the stairs
+t365,train,daily_messages,tell your sister i said hi
+t366,train,daily_messages,what happened
+t367,train,daily_messages,when do you get off work
+t368,train,daily_messages,i'm leaving work now
+t369,train,daily_messages,can you call your sister
+t370,train,daily_messages,see you next week
+t371,train,daily_messages,i'm free tonight
+t372,train,daily_messages,thanks a lot
+t373,train,daily_messages,call you next week
+t374,train,daily_messages,let's get pizza
+t375,train,daily_messages,i left my keys at home
+t376,train,daily_messages,good job
+t377,train,daily_messages,let me know if you need anything
+t378,train,general,she loves spicy food
+t379,train,daily_messages,hey there
+t380,train,daily_messages,on my way to the coffee shop
+t381,train,daily_messages,i just got your message
+t382,train,general,the door bell is ringing
+t383,train,daily_messages,let's grab breakfast today
+t384,train,daily_messages,back in five
+t385,train,daily_messages,want to get a drink
+t386,train,general,i fell asleep on the couch
+t387,train,daily_messages,let me know
+t388,train,daily_messages,meet me at the entrance
+t389,train,daily_messages,see you at nine
+t390,train,daily_messages,good afternoon
+t391,train,daily_messages,not tonight
+t392,train,daily_messages,see you at four
+t393,train,daily_messages,tell your brother i said hi
+t394,train,daily_messages,running fifteen minutes late
+t395,train,daily_messages,did you call
+t396,train,general,we stayed up too late
+t397,train,daily_messages,i'll be home soon
+t398,train,daily_messages,we're here
+t399,train,daily_messages,morning
+t400,train,general,the printer is out of ink
+t401,train,daily_messages,maybe
+t402,train,daily_messages,where should we meet
+t403,train,daily_messages,there's a lot of traffic
+t404,train,daily_messages,i have no idea
+t405,train,daily_messages,i am at the bus stop
+t406,train,daily_messages,whatever you want
+t407,train,daily_messages,can you open the door
+t408,train,daily_messages,i am at the grocery store
+t409,train,daily_messages,awesome
+t410,train,daily_messages,catch you later
+t411,train,daily_messages,let's grab breakfast tomorrow
+t412,train,daily_messages,i'll meet you there
+t413,train,daily_messages,feel better
+t414,train,daily_messages,all good
+t415,train,daily_messages,call you on sunday
+t416,train,daily_messages,can we do it later
+t417,train,daily_messages,almost ready
+t418,train,daily_messages,on my way to the grocery store
+t419,train,general,the pool is closed today
+t420,train,daily_messages,that's too bad
+t421,train,daily_messages,meet you at four
+t422,train,daily_messages,are you busy
+t423,train,daily_messages,see you today
+t424,train,daily_messages,i'm almost home
+t425,train,daily_messages,done
+t426,train,daily_messages,see you soon
+t427,train,general,he likes his coffee black
+t428,train,daily_messages,on my way to the station
+t429,train,daily_messages,are you free this weekend
+t430,train,daily_messages,where's the party
+t431,train,daily_messages,i'm out
+t432,train,daily_messages,we're on our way
+t433,train,daily_messages,are you free today
+t434,train,daily_messages,congrats
+t435,train,daily_messages,i don't think so
+t436,train,general,i can hear the birds
+t437,train,general,my camera is broken
+t438,train,daily_messages,send me the link
+t439,train,daily_messages,meet me at the mall
+t440,train,daily_messages,same to you
+t441,train,general,my keys were in my pocket
+t442,train,daily_messages,see you later
+t443,train,daily_messages,how about tomorrow
+t444,train,daily_messages,i'm downstairs
+t445,train,daily_messages,meet me at the grocery store
+t446,train,daily_messages,are you coming
+t447,train,daily_messages,on my way to the mall
+t448,train,daily_messages,it's been a while
+t449,train,daily_messages,can i call you later
+t450,train,daily_messages,wait for me
+t451,train,daily_messages,ok
+t452,train,general,he grew a beard
+t453,train,general,the room is too warm
+t454,train,daily_messages,meet you at two
+t455,train,daily_messages,i'm not sure yet
+t456,train,daily_messages,the meeting ran late
+t457,train,general,the baby is finally asleep
+t458,train,daily_messages,i'll call you later
+t459,train,general,the air feels fresh
+t460,train,daily_messages,when are you coming
+t461,train,general,she likes green tea
+t462,train,daily_messages,see you on sunday
+t463,train,general,she missed her flight
+t464,train,daily_messages,i am at the mall
+t465,train,daily_messages,come downstairs
+t466,train,daily_messages,i miss you
+t467,train,daily_messages,happy fathers day
+t468,train,daily_messages,i'm just leaving
+t469,train,daily_messages,meet me outside
+t470,train,daily_messages,i can do that
+t471,train,daily_messages,have a good day
+t472,train,daily_messages,let's reschedule
+t473,train,general,the paint is not dry yet
+t474,train,daily_messages,when will you be home
+t475,train,general,the cookies are in the jar
+t476,train,daily_messages,either is fine
+t477,train,general,i bought fresh fruit
+t478,train,daily_messages,food is here
+t479,train,daily_messages,i'll try
+t480,train,general,we sat by the fire
+t481,train,general,i walked home in the rain
+t482,train,daily_messages,see you on monday
+t483,train,daily_messages,let's grab brunch tomorrow
+t484,train,daily_messages,long time no see
+t485,train,daily_messages,text me when you get home
+t486,train,daily_messages,are you home
+t487,train,daily_messages,want to get brunch
+t488,train,daily_messages,what's the address
+t489,train,daily_messages,meet you at six
+t490,train,daily_messages,i have class
+t491,train,daily_messages,i can't wait
+t492,train,general,my phone is on silent
+t493,train,daily_messages,i'll call you tonight
+t494,train,daily_messages,meet me at the library
+t495,train,daily_messages,don't worry
+t496,train,daily_messages,call you tomorrow
+t497,train,daily_messages,send me your location
+t498,train,daily_messages,i am at the hospital
+t499,train,general,the candle smells nice
+t500,train,daily_messages,night
+t501,train,general,my hands are cold
+t502,train,daily_messages,nope
+t503,train,daily_messages,can you text me
+t504,train,general,the street is very quiet
+t505,train,general,the window was left open
+t506,train,daily_messages,meet me at the hospital
+t507,train,daily_messages,wait a second
+t508,train,daily_messages,how did it go
+t509,train,daily_messages,i'm on my way home
+t510,train,daily_messages,that's so funny
+t511,train,daily_messages,hi
+t512,train,daily_messages,i'll be there in a bit
+t513,train,daily_messages,i'll be home late
+t514,train,daily_messages,how was the trip
+t515,train,general,the dishwasher is running
+t516,train,daily_messages,i'll wait for you
+t517,train,daily_messages,on my way to the library
+t518,train,daily_messages,my train is late
+t519,train,general,he lost his wallet on the train
+t520,train,daily_messages,i think so
+t521,train,general,we drove to the coast
+t522,train,general,i lost my umbrella yesterday
+t523,train,daily_messages,not sure
+t524,train,daily_messages,on my way to the airport
+t525,train,daily_messages,tell mom i said hi
+t526,train,general,the elevator is broken again
+t527,train,daily_messages,i love you
+t528,train,daily_messages,call you tonight
+t529,train,daily_messages,proud of you
+t530,train,general,i will wash the car tomorrow
+t531,train,daily_messages,what time do you finish
+t532,train,daily_messages,we'll see
+t533,train,daily_messages,what time is it
+t534,train,general,she is learning to swim
+t535,train,general,my glasses are on the table
+t536,train,daily_messages,see you on friday
+t537,train,daily_messages,perfect
+t538,train,daily_messages,what are you doing
+t539,train,daily_messages,we're almost there
+t540,train,daily_messages,let's grab dinner tomorrow
+t541,train,daily_messages,i'm a bit late
+t542,train,daily_messages,i got home
+t543,train,daily_messages,i forgot
+t544,train,daily_messages,that sounds fun
+t545,train,daily_messages,absolutely
+t546,train,general,my tooth hurts a little
+t547,train,daily_messages,the door is open
+t548,train,general,we walked along the beach
+t549,train,general,the clock is five minutes fast
+t550,train,daily_messages,i'm still at work
+t551,train,general,my brother is visiting next month
+t552,train,general,my alarm did not go off
+t553,train,daily_messages,cool
+t554,train,general,i put the milk back
+t555,train,general,the floor is still wet
+t556,train,daily_messages,i'll ask her
+t557,train,daily_messages,we should get dinner
+t558,train,daily_messages,i'm in the shower
+t559,train,general,we rented a small boat
+t560,train,general,the trash goes out on monday
+t561,train,daily_messages,see you on saturday
+t562,train,general,the kids are watching cartoons
+t563,train,daily_messages,i'll be down in a minute
+t564,train,daily_messages,the door is locked
+t565,train,daily_messages,we can talk later
+t566,train,daily_messages,i'm at home
+t567,train,daily_messages,fine by me
+t568,train,daily_messages,i'm sorry
+t569,train,daily_messages,have a safe trip
+t570,train,daily_messages,i need more time
+t571,train,daily_messages,happy mothers day
+t572,train,daily_messages,let's grab a drink today
+t573,train,daily_messages,i'm at work
+t574,train,daily_messages,what should i bring
+t575,train,daily_messages,are you still coming
+t576,train,daily_messages,my phone is dying
+t577,train,daily_messages,want to get lunch
+t578,train,daily_messages,i am at the restaurant
+t579,train,daily_messages,your call
+t580,train,daily_messages,meet you at seven
+t581,train,daily_messages,we're out of bread
+t582,train,daily_messages,goodbye
+t583,train,general,the soup needs more salt
+t584,train,daily_messages,call me
+t585,train,general,she runs every morning
+t586,train,daily_messages,running five minutes late
+t587,train,general,she sings in a choir
+t588,train,general,my headphones are tangled
+t589,train,daily_messages,not yet
+t590,train,daily_messages,i just got here
+t591,train,daily_messages,i'm almost done
+t592,train,daily_messages,can you wait for me
+t593,train,daily_messages,when is it
+t594,train,daily_messages,let's grab lunch today
+t595,train,general,she keeps a diary
+t596,train,daily_messages,me too
+t597,train,daily_messages,i need help
+t598,train,daily_messages,i need to go
+t599,train,daily_messages,i got your message
+t600,train,daily_messages,answer your phone
+t601,train,daily_messages,have a good night
+t602,train,general,we had pasta for dinner
+t603,train,daily_messages,let's watch a movie
+t604,train,general,i need some fresh air
+t605,train,general,he takes the bus to work
+t606,train,daily_messages,i am at the airport
+t607,train,daily_messages,share your location
+t608,train,general,i made a cup of tea
+t609,train,general,we painted the bedroom
+t610,train,daily_messages,i understand
+t611,train,general,he speaks three languages
+t612,train,daily_messages,happy new year
+t613,train,general,the hotel has a pool
+t614,train,daily_messages,i'm so sorry i'm late
+t615,train,daily_messages,pick up the phone
+t616,train,general,the music is too loud
+t617,train,daily_messages,just a minute
+t618,train,daily_messages,did you get it
+t619,train,daily_messages,let's grab brunch today
+t620,train,general,the kettle is boiling
+t621,train,daily_messages,how about friday
+t622,train,daily_messages,are you sure
+t623,train,daily_messages,can you grab some milk
+t624,train,daily_messages,i am at the library
+t625,train,general,the tea is too hot
+t626,train,daily_messages,i'm going to sleep
+t627,train,daily_messages,well done
+t628,train,daily_messages,see you
+t629,train,general,we watched a documentary
+t630,train,daily_messages,i have to go
+t631,train,daily_messages,where are you
+t632,train,daily_messages,what should we eat
+t633,train,daily_messages,have a nice weekend
+t634,train,daily_messages,merry christmas
+t635,train,daily_messages,want to get dinner
+t636,train,general,the towels are in the closet
+t637,train,daily_messages,okay
+t638,train,daily_messages,be there in thirty minutes
+t639,train,daily_messages,can you pick up the kids
+t640,train,daily_messages,you're welcome
+t641,train,general,she wrote a long letter
+t642,train,daily_messages,what are you up to
+t643,train,daily_messages,that's fine
+t644,train,general,our neighbors have a new puppy
+t645,train,daily_messages,i am at the office
+t646,train,general,i will clean my room
+t647,train,general,my bike has a flat tire
+t648,train,daily_messages,i see
+t649,train,general,i heard a strange noise
+t650,train,daily_messages,let's go out tonight
+t651,train,daily_messages,are you free next week
+t652,train,daily_messages,you too
+t653,train,daily_messages,do you want to come
+t654,train,general,the light in the hall is out
+t655,train,daily_messages,on my way to the hospital
+t656,train,daily_messages,what's for dinner
+t657,train,daily_messages,who else is coming
+t658,train,daily_messages,do you need anything
+t659,train,daily_messages,let's meet at noon
+t660,train,daily_messages,i'm at the doctor
+t661,train,general,the shower is very cold
+t662,train,general,the shop opens at nine
+t663,train,daily_messages,drive safe
+t664,train,general,i need a haircut
+t665,train,daily_messages,can i call you
+t666,train,daily_messages,i'm driving
+t667,train,daily_messages,text me when you're done
+t668,train,daily_messages,i'm busy today
+t669,train,daily_messages,tell dad i said hi
+t670,train,daily_messages,we should hang out
+t671,train,general,we booked a table for four
+t672,train,daily_messages,my battery is low
+t673,train,daily_messages,let's grab lunch this weekend
+t674,train,daily_messages,be right back
+t675,train,daily_messages,see you at two
+t676,train,daily_messages,let's grab coffee this weekend
+t677,train,general,we planted tomatoes in may
+t678,train,daily_messages,it's not a big deal
+t679,train,daily_messages,i don't know
+t680,train,daily_messages,meet you at eight
+t681,train,daily_messages,i'm in

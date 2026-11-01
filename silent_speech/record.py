@@ -10,9 +10,15 @@ Keys (in the preview window):
     S      skip this prompt
     Q      quit (progress is kept; re-running skips prompts already recorded)
 
+After quitting, add --redo-last to re-record the last saved clip (same as pressing R).
+
 Output (clips are resampled to the 25 fps the model was trained on):
     silent_speech/data/raw/<session>/<clip_id>.mp4
     silent_speech/data/manifest.jsonl   (one JSON line per clip, "path" relative to data/)
+
+Training data goes to its own folder so it can never mix with the test set:
+    python silent_speech/record.py --prompts silent_speech/train_prompts.csv \
+        --data-dir silent_speech/data_train --session train --camera 1
 """
 import argparse
 import csv
@@ -78,13 +84,21 @@ def drop_last_manifest_line():
 
 
 def main():
+    global DATA, MANIFEST
     ap = argparse.ArgumentParser()
     ap.add_argument("--prompts", default=str(HERE / "prompts.csv"))
     ap.add_argument("--session", required=True, help="e.g. day1, day2 (used for cross-day tests)")
     ap.add_argument("--condition", default="silent", choices=["silent", "voiced"])
+    ap.add_argument("--data-dir", default=str(DATA), help="Where clips and manifest.jsonl go (data_train for training)")
+    ap.add_argument("--redo-last", action="store_true",
+                    help="Delete the last saved clip before starting, to re-record it (R after quitting)")
     ap.add_argument("--camera", type=int, default=0, help="Camera index (1 on Ethan's Mac; 0 is Continuity Camera)")
     args = ap.parse_args()
 
+    DATA = Path(args.data_dir).resolve()
+    MANIFEST = DATA / "manifest.jsonl"
+    if args.redo_last and MANIFEST.exists():
+        drop_last_manifest_line()
     out_dir = DATA / "raw" / args.session
     out_dir.mkdir(parents=True, exist_ok=True)
 
